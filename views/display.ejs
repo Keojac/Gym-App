@@ -1,14 +1,17 @@
 <%- include('./partials/head.ejs') %>
-
+<div>
+    <a href="/new/<%= muscle %>">Add New Exercise</a>
+</div>
 <h1><%= muscle %> Home</h1>
 
 <% for (let exercise of allExercises) { %>
 
 <p>
-    <a href="/<%= baseUrl %>/<%= exercise.id %>"> <%= exercise.name %> </a>
+    <a href="/<%= exercise.id %>"> <%= exercise.name %> </a>
     <%= exercise.targets %>
     <%= exercise.images %>
 </p>
+
 
 
 <% } %>

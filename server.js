@@ -16,7 +16,7 @@ app.use(methodOverride('_method'))
 app.use(express.static('public'))
 
 
-app.use('/exercise', exerciseRouter)
+app.use('/', exerciseRouter)
 
 
 mongoose.connect(dbURL, () => {
