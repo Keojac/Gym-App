@@ -1,0 +1,34 @@
+<%- include ('../partials/head.ejs') %>
+<h1>Log In</h1>
+
+<div class="flash_messages">
+    <% if (messages.success){ %>
+        <% for (let msg of messages) {  %>
+            <p class="success"> <%= msg %> </p>
+        <% } %>
+    <% } %>
+    <% if (messages.info){ %>
+        <% for (let msg of messages) { %>
+            <p class="info"> <%= msg %> </p>
+        <% } %>
+    <% } %>
+    <% if (messages.error){ %>
+        <% for(let msg of messages) { %>
+            <p class="error"><%= msg %></p>
+        <% } %>
+    <% } %>
+</div>
+
+<form action="/" method="post">
+  <label for="username">Username</label>
+  <input type="text" name="username" id="username" required />
+  <label for="password">Password</label>
+  <input type="password" name="password" id="password" required />
+  <input type="submit" value="Login" />
+</form>
+
+<p>
+  Don't have an account yet?
+  <a href="/users/signup">Sign up here</a>
+</p>
+<%- include ('../partials/footer.ejs') %>

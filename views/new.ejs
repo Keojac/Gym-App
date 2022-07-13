@@ -1,14 +1,14 @@
 <%- include('./partials/head.ejs') %>
-
+<a href="/">Back to Homepage</a>
  <h1>Add New Exercise</h1>
  <form action="/index/<%= targets %>" method="post">
     <label for="name">Name</label>
     <input type="text" name="name" id="name" />
     <label for="targets">Targets</label>
-    <input type="text" name="targets" id="targets" />
+    <input type="text" name="targets" id="targets" value="<%= targets %>" readonly="readonly"/>
     <label for="form">Form</label>
     <input type="text" name="form" id="form" />
-    <label for="images">Images</label>
+    <label for="images">Image Urls</label>
     <input type="text" name="images" id="images" />
     <input type="submit" value="Create Exercise" />
  </form>

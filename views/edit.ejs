@@ -1,0 +1,18 @@
+<%- include('./partials/head.ejs') %>
+<a href="/">Back to Homepage</a>
+ <h1>Update <%= exercise.name %></h1>
+ <form action="/<%= targets %>?_method=PUT" method="post">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" value="<%= exercise.name %>"/>
+    <label for="form">Form</label>
+    <input type="text" name="form" id="form" value="<%= exercise.form %>"/>
+    <label for="images">Image Urls</label>
+    <input type="text" name="images" id="images" value="<%= exercise.image %>"/>
+    <input type="submit" value="Update Exercise" />
+ </form>
+
+
+
+
+
+ <%- include('./partials/footer.ejs') %>

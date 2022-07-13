@@ -1,0 +1,11 @@
+body, html {
+    height: 100%;
+}
+
+body {
+    background: url('https://img.freepik.com/free-photo/3d-rendering-modern-loft-gym-fitness_105762-2020.jpg?t=st=1657677508~exp=1657678108~hmac=70da93009cd4a557512d3017984744e23ae4a1d8102ac4d5d8576f8f230a181a&w=996');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    margin: 0;
+}

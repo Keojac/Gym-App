@@ -4,14 +4,24 @@ const exerciseRouter = express.Router()
 const Exercise = require('../models/exercise')
 const User = require('../models/user')
 
+// Prevent users from accesing the page by creating authentication
+const isAuthenticated = (req, res, next) => {
+    if(req.session.currentUser) {
+        return next()
+    } else {
+        res.redirect('/login')
+    }
+}
 
+// Index Route
 exerciseRouter.get('/', (req, res) => {
         res.render('index.ejs', {
-        baseUrl: req.baseUrl,
-        tabTitle: 'Muscles Index'
+        tabTitle: 'Muscles Index',
+        currentUser: req.session.currentUser
     })
 })
 
+// Secondary Index Route
 exerciseRouter.get('/index/:muscletype', (req,res) => {
     Exercise.find({targets: req.params.muscletype})
     .exec()
@@ -19,27 +29,29 @@ exerciseRouter.get('/index/:muscletype', (req,res) => {
         res.render('display.ejs', {
             allExercises: exercises,
             muscle: req.params.muscletype,
-            baseUrl: req.baseUrl,
-            tabTitle: req.params.muscletype
+            tabTitle: req.params.muscletype,
+            currentUser: req.session.currentUser
         })
     })
 })
 
-exerciseRouter.get('/new/:muscletype', (req, res) => {
+// New Route
+exerciseRouter.get('/new/:muscletype', isAuthenticated, (req, res) => {
     res.render('new.ejs', {
-        baseUrl: req.baseUrl,
         tabTitle: 'Add New Exercise',
-        targets: req.params.muscletype
+        targets: req.params.muscletype,
+        currentUser: req.session.currentUser
     })
 })
 
+// Create Route
 exerciseRouter.post('/index/:muscletype', (req,res) => {
     Exercise.create({
         name: req.body.name,
         targets: req.params.muscletype,
         form: req.body.form,
         images: req.body.images,
-        // user_id: req.session.currentUser   **work on this later when creating user profiles**
+        user_id: req.session.currentUser   
     })
     .then((newExercise) => {
         console.log('New Exercise Created:', newExercise);
@@ -48,22 +60,22 @@ exerciseRouter.post('/index/:muscletype', (req,res) => {
 })
 
 // Edit Route
-exerciseRouter.get('/:id/edit', (req, res) => {
+exerciseRouter.get('/edit/:id', isAuthenticated, (req, res) => {
     Exercise.findById(req.params.id)
     .exec()
     .then((exercise) => {
     res.render('edit.ejs', { 
         exercise: exercise,
         tabTitle: 'Update Exercise:' + exercise.name,
-        baseUrl: req.baseUrl,
-        index: req.params.id
+        targets: req.params.id,
+        currentUser: req.session.currentUser
         })
     })
 })
 
 // Updated Route
 exerciseRouter.put('/:id', (req, res) => {
-    Exercise.findByIdAndUpdate(req.params.id)
+    Exercise.findByIdAndUpdate(req.params.id, req.body)
     .exec()
     .then((updatedExercise) => {
         console.log('Exercise Updated:', updatedExercise);
@@ -73,21 +85,27 @@ exerciseRouter.put('/:id', (req, res) => {
 
 
 
-
+// Show Route
 exerciseRouter.get('/:id', (req, res) => {
     Exercise.findById(req.params.id)
     .exec()
     .then((exercise) => {
         res.render('show.ejs', {
             exercise: exercise,
-            baseUrl: req.baseUrl,
             tabTitle: exercise.name,
+            currentUser: req.session.currentUser
         })
     })
 })
 
-
-
+// Delete Route
+exerciseRouter.delete('/:id', isAuthenticated, (req, res) => {
+    Exercise.findByIdAndDelete(req.params.id)
+    .exec()
+    .then(() => {
+        res.redirect('/')
+    })
+})
 
 
 

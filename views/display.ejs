@@ -1,4 +1,5 @@
 <%- include('./partials/head.ejs') %>
+<a href="/">Back to Homepage</a>
 <div>
     <a href="/new/<%= muscle %>">Add New Exercise</a>
 </div>
@@ -10,9 +11,13 @@
     <a href="/<%= exercise.id %>"> <%= exercise.name %> </a>
     <%= exercise.targets %>
     <%= exercise.images %>
+    <br>
+    <a href="/edit/<%= exercise.id %>">Edit Exercise</a>
+
+    <form action="/<%= exercise.id %>?_method=DELETE" method="post">
+        <input type="submit" value="Delete">
+    </form>
 </p>
-
-
 
 <% } %>
 
