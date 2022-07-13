@@ -1,17 +1,28 @@
 <%- include('./partials/head.ejs') %>
-<a href="/">Back to Homepage</a>
- <h1>Add New Exercise</h1>
- <form action="/index/<%= targets %>" method="post">
-    <label for="name">Name</label>
-    <input type="text" name="name" id="name" />
-    <label for="targets">Targets</label>
-    <input type="text" name="targets" id="targets" value="<%= targets %>" readonly="readonly"/>
-    <label for="form">Form</label>
-    <input type="text" name="form" id="form" />
-    <label for="images">Image Urls</label>
-    <input type="text" name="images" id="images" />
-    <input type="submit" value="Create Exercise" />
- </form>
+
+ <h1 class="add-title">Add New Exercise</h1>
+
+<form class="row gy-2 gx-3 align-items-center new-form" action="/index/<%= targets %>" method="post">
+    <div class="col-auto">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" />
+    </div>
+    <div class="col-auto">
+        <label for="targets">Targets</label>
+        <input type="text" name="targets" id="targets" value="<%= targets %>" readonly="readonly"/>
+    </div>  
+    <div class="col-auto">
+        <label for="form">Form</label>
+        <input type="text" name="form" id="form" />
+    </div>
+    <div class="col-auto">
+        <label for="images">Image Urls</label>
+        <input type="url" name="images" id="images" />
+    </div>
+    <div class="col-auto">
+        <input type="submit" value="Create Exercise" />
+    </div>
+</form>
 
 
 
