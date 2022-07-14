@@ -1,19 +1,19 @@
 <%- include ('../partials/head.ejs') %>
 <h1>Log In</h1>
 
-<div class="flash_messages">
+<div class="flash-messages">
     <% if (messages.success){ %>
-        <% for (let msg of messages) {  %>
+        <% for (let msg of messages.success) {  %>
             <p class="success"> <%= msg %> </p>
         <% } %>
     <% } %>
     <% if (messages.info){ %>
-        <% for (let msg of messages) { %>
+        <% for (let msg of messages.info) { %>
             <p class="info"> <%= msg %> </p>
         <% } %>
     <% } %>
     <% if (messages.error){ %>
-        <% for(let msg of messages) { %>
+        <% for(let msg of messages.error) { %>
             <p class="error"><%= msg %></p>
         <% } %>
     <% } %>
