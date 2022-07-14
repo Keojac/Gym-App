@@ -22,3 +22,9 @@ https://img.freepik.com/free-photo/portrait-healthy-active-elderly-male-pensione
 
 Abs Image:
 https://img.freepik.com/free-photo/cropped-photo-mans-sweaty-torso_171337-7544.jpg?t=st=1657686939~exp=1657687539~hmac=cb60bdb4f518968c7a9ee10e955e85fba6dd151614d38b6b13ae1a1711197112&w=996 
+
+Favicon Reference:
+https://www.flaticon.com/free-icon/arm_102833
+
+
+https://gym-guru.herokuapp.com/
