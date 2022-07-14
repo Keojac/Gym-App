@@ -1,15 +1,13 @@
 <%- include('./partials/head.ejs') %>
 
 
-<h1><%= exercise.name %></h1>
-
-<p class="log">
-    <%= exercise.targets %>
-    <%= exercise.form %>
+<h1 class="log account"><%= exercise.name %></h1>
+<div class="log">
+    <div class="account"><h5>Targets:</h5><%= exercise.targets %></div>
+    <div class="account"><h5>Form:</h5><%= exercise.form %></div>
+    <br>
     <img class="display-images" src="<%= exercise.images %>" alt="image of exercise">
-
-</p>
-
+</div>
 
 
 

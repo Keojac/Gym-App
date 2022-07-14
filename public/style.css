@@ -128,3 +128,22 @@ h2 {
 .display-images {
     height: 200px;
 }
+
+.individual {
+    background-color: #D3D3D3;
+    opacity: 0.9;
+    width: 310px;
+    height: 305px;
+    position: relative;
+}
+
+.delete {
+    position: absolute;
+    right: 0;
+    bottom: 0px;
+}
+
+.edit {
+    color: navy !important;
+}
+
