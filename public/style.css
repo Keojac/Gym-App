@@ -8,6 +8,7 @@ body {
     background-size: cover;
     height: 100%;
     margin: 0;
+    position: relative;
 }
 
 .container {
@@ -108,4 +109,22 @@ footer {
 
 h2 {
     font-family: 'Ubuntu', sans-serif;
+}
+
+.error {
+    background-color: lightcoral;
+    width: fit-content !important;
+    color: red;
+}
+
+.log {
+    margin-left: 10px;
+}
+
+.account {
+    margin-top: 10px;
+}
+
+.display-images {
+    height: 200px;
 }

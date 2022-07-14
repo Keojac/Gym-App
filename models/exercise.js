@@ -3,9 +3,9 @@ const Schema = mongoose.Schema
 
 const ExerciseSchema = new Schema ({
     name: String,
-    targets: String,
+    targets: [String],
     form: [String],
-    images: [String],
+    images: {type: String, default: 'https://loremflickr.com/200/200/gym'},
     user_id: String
 })
 

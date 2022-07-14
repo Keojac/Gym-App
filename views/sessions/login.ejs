@@ -1,5 +1,5 @@
 <%- include ('../partials/head.ejs') %>
-<h1>Log In</h1>
+<h1 class="log">Log In</h1>
 
 <div class="flash-messages">
     <% if (messages.success){ %>
@@ -19,7 +19,7 @@
     <% } %>
 </div>
 
-<form action="/login" method="post">
+<form class="log" action="/login" method="post">
   <label for="username">Username</label>
   <input type="text" name="username" id="username" required />
   <label for="password">Password</label>
@@ -27,8 +27,9 @@
   <input type="submit" value="Login" />
 </form>
 
-<p>
-  Don't have an account yet?
-  <a href="/users/signup">Sign up here</a>
-</p>
+<div class="account">
+    <p class="log">Don't have an account yet?
+    <a class="log" href="/users/signup">Sign up here</a>
+    </p>
+</div>
 <%- include ('../partials/footer.ejs') %>

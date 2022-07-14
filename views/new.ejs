@@ -2,7 +2,7 @@
 
  <h1 class="add-title">Add New Exercise</h1>
 
-<form class="row gy-2 gx-3 align-items-center new-form" action="/index/<%= targets %>" method="post">
+<form class="row gy-2 gx-3 align-items-center new-form" action="/index/<%= targets %>" method="post" enctype="multipart/form-data">
     <div class="col-auto">
         <label for="name">Name</label>
         <input type="text" name="name" id="name" />
@@ -16,9 +16,8 @@
         <input type="text" name="form" id="form" />
     </div>
     <div class="col-auto">
-        <!-- Need to do Cloudinary here -->
-        <label for="images">Image Urls</label>
-        <input type="url" name="images" id="images" />
+        <label for="image">Image Urls</label>
+        <input type="file" name="image" id="image" />
     </div>
     <div class="col-auto">
         <input type="submit" value="Create Exercise" />

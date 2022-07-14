@@ -1,6 +1,6 @@
 <%- include('./partials/head.ejs') %>
 
-<h1 class="heading"><%= muscle %> Home</h1>
+<h1 class="heading account"><%= muscle %> Home</h1>
 <div class="new">
     <a class="add" href="/new/<%= muscle %>">Add New Exercise</a>
 </div>
@@ -9,7 +9,7 @@
 <p>
     <a href="/<%= exercise.id %>"> <%= exercise.name %> </a>
     <%= exercise.targets %>
-    <%= exercise.images %>
+    <img class="display-images" src="<%= exercise.images %>" alt="image of exercise">
     <br>
     <a href="/edit/<%= exercise.id %>">Edit Exercise</a>
 
