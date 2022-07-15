@@ -5,7 +5,7 @@ const ExerciseSchema = new Schema ({
     name: String,
     targets: [String],
     form: [String],
-    images: {type: String, default: 'https://loremflickr.com/200/200/gym'},
+    images: {type: String, default: 'https://loremflickr.com/300/200/gym'},
     user_id: String
 })
 

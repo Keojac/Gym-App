@@ -1,7 +1,10 @@
 const express = require('express')
 const exerciseRouter = express.Router()
 
+// Cloudinary Function
 const upload = require('../middlewares/upload')
+
+// Models
 const Exercise = require('../models/exercise')
 const User = require('../models/user')
 
@@ -16,7 +19,6 @@ const isAuthenticated = (req, res, next) => {
 
 // Index Route
 exerciseRouter.get('/', (req, res) => {
-        console.log(req.session.currentUser);
         res.render('index.ejs', {
         tabTitle: 'Muscles Index',
         currentUser: req.session.currentUser
@@ -49,7 +51,7 @@ exerciseRouter.get('/new/:muscletype', isAuthenticated, (req, res) => {
 // Create Route
 exerciseRouter.post('/index/:muscletype', upload.single('image'), (req,res) => { 
     if (req.body.images === ''){
-    req.body.images = 'https://loremflickr.com/200/200/gym'
+    req.body.images = 'https://loremflickr.com/300/200/gym'
     } else {
     req.body.images = req.file
     }

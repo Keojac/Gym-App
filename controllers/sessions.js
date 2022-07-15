@@ -5,6 +5,7 @@ const User = require('../models/user.js')
 
 const sessionsRouter = express.Router()
 
+// Login Page
 sessionsRouter.get('/login', (req, res) => {
     res.render('sessions/login.ejs', {
         tabTitle: 'Log In',
@@ -12,6 +13,7 @@ sessionsRouter.get('/login', (req, res) => {
     })
 })
 
+// Login page error messages
 sessionsRouter.post('/login', (req, res) => {
     User.findOne({ username: req.body.username })
     .then((user) => {
@@ -29,6 +31,7 @@ sessionsRouter.post('/login', (req, res) => {
     })
 })
 
+// End Session Route
 sessionsRouter.delete('/logout', (req, res) => {
     req.session.destroy(() => {
         res.redirect('/')
