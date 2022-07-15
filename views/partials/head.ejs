@@ -9,10 +9,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Upright&display=swap" rel="stylesheet">
-<title><%= tabTitle %>></title>
+    <title><%= tabTitle %>></title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-light">
@@ -21,20 +21,19 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <% if (currentUser) { %>
-        <form action="/logout?_method=DELETE" method="POST">
-          <input class="navbar-brand logout" type="submit" value="Log Out" />
-        </form>
-      <% } else { %>
-        <a class="navbar-brand" href="/login">Log In</a>
-      <% }%>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a class="nav-link" href="/">Home</a>        
-            </li>
-        </ul>
+            <% if (currentUser) { %>
+            <form action="/logout?_method=DELETE" method="POST">
+            <input class="navbar-brand logout" type="submit" value="Log Out" />
+            </form>
+            <% } else { %>
+            <a class="navbar-brand" href="/login">Log In</a>
+            <% }%>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>        
+                </li>
+            </ul>
         </div>
         <a href="/" style="text-decoration: none;"><h1>Gym Guru</h1></a>
     </div>
-    
 </nav>

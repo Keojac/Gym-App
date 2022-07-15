@@ -5,22 +5,19 @@
     <a class="add" href="/new/<%= muscle %>">Add New Exercise</a>
 </div>
 <div class="individual-exercise">
-<% for (let exercise of allExercises) { %>
-<div class="log account individual">
-<p>
-    <h3><a href="/<%= exercise.id %>"> <%= exercise.name %> </a></h3>
-    <%= exercise.targets %>
-    <br>
-    <img class="display-images" src="<%= exercise.images %>" alt="image of exercise">
-    <br>
-    <a class="edit" href="/edit/<%= exercise.id %>">Edit Exercise</a>
-
-    <form action="/<%= exercise.id %>?_method=DELETE" method="post">
-        <input class="delete btn btn-danger" type="submit" value="Delete">
-    </form>
-</p>
-</div>
-<% } %>
+    <% for (let exercise of allExercises) { %>
+    <div class="log account individual">
+        <h3><a href="/<%= exercise.id %>"> <%= exercise.name %> </a></h3>
+        <%= exercise.targets %>
+        <br>
+        <img class="display-images" src="<%= exercise.images %>" alt="image of exercise">
+        <br>
+        <a class="edit" href="/edit/<%= exercise.id %>">Edit Exercise</a>
+        <form action="/<%= exercise.id %>?_method=DELETE" method="post">
+            <input class="delete btn btn-danger" type="submit" value="Delete">
+        </form>
+    </div>
+    <% } %>
 </div>
 
 

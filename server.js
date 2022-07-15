@@ -6,6 +6,7 @@ const session = require('express-session')
 const flash = require('express-flash')
 const app = express()
 
+// Controllers
 const userController = require('./controllers/users.js')
 const sessionsController = require('./controllers/sessions.js')
 const methodOverride = require('method-override')
@@ -15,6 +16,7 @@ const exerciseRouter = require('./controllers/exercise')
 const PORT = process.env.PORT
 const dbURL = process.env.MONGODB_URL
 
+// Session Creation
 app.use(
     session({
         secret: process.env.SESSION_SECRET,
@@ -25,11 +27,13 @@ app.use(
         }
     })
 )
+
 app.use(flash())
 app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
 app.use(express.static('public'))
 
+// Controller Routes
 app.use('/users', userController)
 app.use('/', sessionsController)
 app.use('/', exerciseRouter)
